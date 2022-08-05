@@ -1,5 +1,8 @@
 # Laravel Arkitect
 
+<a href="/LICENSE"><img alt="License" src="https://img.shields.io/github/license/smortexa/laravel-arkitect"></a>
+<a href="https://github.com/smortexa/laravel-arkitect/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smortexa/laravel-arkitect"></a>
+
 Laravel Arkitect lets you test and enforce your architectural rules in your Laravel applications, and it's
 a [PHPArkitect](https://github.com/phparkitect/arkitect) wrapper for Laravel. This package helps you to keep your app's
 architecture clean and consistent.
