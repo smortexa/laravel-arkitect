@@ -9,7 +9,7 @@ architecture clean and consistent.
 You can install the package via Composer:
 
 ```
-compsoer require mortexa/laravel-arkitect
+compsoer require mortexa/laravel-arkitect --dev
 ```
 
 ## Usage
