@@ -1,7 +1,6 @@
 # Laravel Arkitect
 
-<a href="/LICENSE"><img alt="License" src="https://img.shields.io/github/license/smortexa/laravel-arkitect"></a>
-<a href="https://github.com/smortexa/laravel-arkitect/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/smortexa/laravel-arkitect"></a>
+[![Latest Stable Version](http://poser.pugx.org/mortexa/laravel-arkitect/v)](https://packagist.org/packages/mortexa/laravel-arkitect) [![Total Downloads](http://poser.pugx.org/mortexa/laravel-arkitect/downloads)](https://packagist.org/packages/mortexa/laravel-arkitect) [![Latest Unstable Version](http://poser.pugx.org/mortexa/laravel-arkitect/v/unstable)](https://packagist.org/packages/mortexa/laravel-arkitect) [![License](http://poser.pugx.org/mortexa/laravel-arkitect/license)](https://packagist.org/packages/mortexa/laravel-arkitect) [![PHP Version Require](http://poser.pugx.org/mortexa/laravel-arkitect/require/php)](https://packagist.org/packages/mortexa/laravel-arkitect)
 
 Laravel Arkitect lets you test and enforce your architectural rules in your Laravel applications, and it's
 a [PHPArkitect](https://github.com/phparkitect/arkitect) wrapper for Laravel. This package helps you to keep your app's
