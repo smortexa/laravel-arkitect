@@ -4,7 +4,7 @@ Laravel Arkitect lets you test and enforce your architectural rules in your Lara
 a [PHPArkitect](https://github.com/phparkitect/arkitect) wrapper for Laravel. This package helps you to keep your app's
 architecture clean and consistent.
 
-## Install
+## Installation
 
 You can install the package via Composer:
 
