@@ -1,0 +1,55 @@
+{
+    "name": "mortexa/laravel-arkitect",
+    "description": "Test and enforce architectural rules in your Laravel applications",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mortexa\\LaravelArkitect\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mortexa\\LaravelArkitect\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mortexa\\LaravelArkitect\\ArkitectServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "SMortexa Ebadi",
+            "email": "seyed.me720@gmail.com"
+        }
+    ],
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0",
+        "phparkitect/phparkitect": "^0.2.26",
+        "laravel/framework": "^8.0|^9.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^7.6",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.2",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "lint": "./vendor/bin/pint",
+        "test": "./vendor/bin/pest"
+    }
+}

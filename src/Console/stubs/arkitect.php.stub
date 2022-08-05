@@ -1,0 +1,34 @@
+<?php
+
+namespace DummyNamespace;
+
+use Arkitect\Rules\DSL\ArchRule;
+use Mortexa\LaravelArkitect\Contracts\RuleContract;
+use Mortexa\LaravelArkitect\Rules\BaseRule;
+
+class DummyClass extends BaseRule implements RuleContract
+{
+    /**
+     * Define your architectural rule
+     *
+     * @link https://github.com/phparkitect/arkitect
+     *
+     * @return \Arkitect\Rules\DSL\ArchRule
+     */
+    public static function rule(): ArchRule
+    {
+        // TODO: Implement rule() method.
+    }
+
+    /**
+     * Define the path related to your rule
+     *
+     * @example app/Http/Controllers
+     *
+     * @return string
+     */
+    public static function path(): string
+    {
+        // TODO: Implement path() method.
+    }
+}
