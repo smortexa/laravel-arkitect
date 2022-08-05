@@ -56,6 +56,7 @@ class ControllersNaming extends BaseRule implements RuleContract
     }
 }
 ```
+Then, you must implement `rule()` and `path()` methods based on the following [example](#example).
 
 And finally, you can run your tests by the following command:
 
