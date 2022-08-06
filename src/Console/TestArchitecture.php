@@ -5,12 +5,12 @@ namespace Mortexa\LaravelArkitect\Console;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
 
-class CheckArchitecture extends Command
+class TestArchitecture extends Command
 {
-    protected $signature = 'arkitect:check {--stop-on-failure : The process will end immediately after the first violation.}
+    protected $signature = 'test:arkitect {--stop-on-failure : The process will end immediately after the first violation.}
                                            {--debug : The verbose mode to see every parsed file.}';
 
-    protected $description = 'Validate the app architecture';
+    protected $description = 'Test the app architecture';
 
     public function handle(): int
     {

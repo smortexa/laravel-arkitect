@@ -62,11 +62,11 @@ Then, you must implement `rule()` and `path()` methods based on the following [e
 
 And finally, you can run your tests by the following command:
 
-`php artisan arkitect:check`
-
-> If you want to stop checking command immediately after first violation, you can use `--stop-on-failure` option.
+`php artisan test:arkitect`
 
 Done!
+
+> If you want to stop checking command immediately after first violation, you can use `--stop-on-failure` option.
 
 For all available rules, please take a look at the PHPArkitect repository: https://github.com/phparkitect/arkitect
 
