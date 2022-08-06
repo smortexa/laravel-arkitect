@@ -3,7 +3,7 @@
 namespace Mortexa\LaravelArkitect;
 
 use Illuminate\Support\ServiceProvider;
-use Mortexa\LaravelArkitect\Console\CheckArchitecture;
+use Mortexa\LaravelArkitect\Console\TestArchitecture;
 use Mortexa\LaravelArkitect\Console\MakeArkitectRule;
 
 class ArkitectServiceProvider extends ServiceProvider
@@ -28,7 +28,7 @@ class ArkitectServiceProvider extends ServiceProvider
     {
         if (app()->runningInConsole()) {
             $this->commands([
-                CheckArchitecture::class,
+                TestArchitecture::class,
                 MakeArkitectRule::class,
             ]);
         }
