@@ -3,8 +3,8 @@
 namespace Mortexa\LaravelArkitect;
 
 use Illuminate\Support\ServiceProvider;
-use Mortexa\LaravelArkitect\Console\TestArchitecture;
 use Mortexa\LaravelArkitect\Console\MakeArkitectRule;
+use Mortexa\LaravelArkitect\Console\TestArchitecture;
 
 class ArkitectServiceProvider extends ServiceProvider
 {
