@@ -103,12 +103,11 @@ class ControllersNaming extends BaseRule implements RuleContract
 
 ## Configuration
 
-You can publish the Laravel Arkitect configuration file using the following Artisan command:
+If you want to customize the default rules provided by the package, You can publish the Laravel Arkitect configuration file using the following Artisan command:
 
 `php artisan vendor:publish --provider="Mortexa\LaravelArkitect\ArkitectServiceProvider" --tag="config"`
 
-The `arkitect` configuration file will be placed in your application's `config` directory. There are a few rules
-provided by the package in this file that you can activate and apply to your codebase:
+The `arkitect` configuration file will be placed in your application's `config` directory.
 
 ```php
 // config/arkitect.php
@@ -118,10 +117,6 @@ provided by the package in this file that you can activate and apply to your cod
 use ...
 
 return [
-    'types' => [
-        'naming' => true,
-    ],
-
     'rules' => [
         'naming' => [
             ControllersNaming::class,
@@ -139,6 +134,28 @@ return [
             BuildersNaming::class,
             ContractsNaming::class,
             RepositoriesNaming::class,
+            MailsNaming::class,
+        ],
+        'extending' => [
+            ControllersExtending::class,
+            CommandsExtending::class,
+            ExceptionsExtending::class,
+            RequestsExtending::class,
+            ResourcesExtending::class,
+            ResourceCollectionsExtending::class,
+            ModelsExtending::class,
+            NotificationsExtending::class,
+            ProvidersExtending::class,
+            ViewsExtending::class,
+            FactoriesExtending::class,
+            SeedersExtending::class,
+            MailsExtending::class,
+        ],
+        'implementing' => [
+            RulesImplementing::class,
+            CastsImplementing::class,
+            ScopesImplementing::class,
+            JobsImplementing::class,
         ],
     ],
 ];
