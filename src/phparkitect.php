@@ -3,18 +3,19 @@
 declare(strict_types=1);
 
 use Arkitect\CLI\Config;
+use Illuminate\Support\Arr;
 use Mortexa\LaravelArkitect\CreateApplication;
 
 return static function (Config $config): void {
-    $package_config = CreateApplication::app()['config']['arkitect'];
+    $app = CreateApplication::app();
+
+    $package_config = $app['config']['arkitect'];
 
     $rules = [];
 
-    if ($package_config['types']['naming']) {
-        $rules = array_merge($rules, $package_config['rules']['naming']);
-    }
+    $rules = array_merge($rules, Arr::flatten($package_config['rules']));
 
-    foreach (glob(CreateApplication::app()->path('Arkitect/*.php')) as $file) {
+    foreach (glob($app->path('Arkitect/*.php')) as $file) {
         $class = basename($file, '.php');
         $rules[] = 'App\\Arkitect\\'.$class;
     }

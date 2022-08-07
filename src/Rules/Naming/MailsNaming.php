@@ -9,18 +9,18 @@ use Arkitect\Rules\Rule;
 use Mortexa\LaravelArkitect\Contracts\RuleContract;
 use Mortexa\LaravelArkitect\Rules\BaseRule;
 
-class ScopesNaming extends BaseRule implements RuleContract
+class MailsNaming extends BaseRule implements RuleContract
 {
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Models\Scopes'))
-            ->should(new HaveNameMatching('*Scope'))
+            ->that(new ResideInOneOfTheseNamespaces('App\Mails'))
+            ->should(new HaveNameMatching('*Mail'))
             ->because('It\'s a Laravel naming convention');
     }
 
     public static function path(): string
     {
-        return 'app/Models/Scopes';
+        return 'app/Mails';
     }
 }
