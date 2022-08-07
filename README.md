@@ -70,6 +70,10 @@ Done!
 
 For all available rules, please take a look at the PHPArkitect repository: https://github.com/phparkitect/arkitect
 
+### Default rules
+
+Some opinionated rules are provided by the package and apply by default. These rules are about Laravel user-land structure. You are free to customize or ignore them entirely by [publishing config file](#configuration).
+
 ## Example
 
 ```php
