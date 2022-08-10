@@ -9,15 +9,15 @@ use Mortexa\LaravelArkitect\CreateApplication;
 return static function (Config $config): void {
     $app = CreateApplication::app();
 
-    $package_config = $app['config']['arkitect'];
+    $package_config = $app->make('config')['arkitect'];
 
     $rules = [];
 
     $rules = array_merge($rules, Arr::flatten($package_config['rules']));
 
-    foreach (glob($app->path('Arkitect/*.php')) as $file) {
+    foreach (glob($app->basePath('tests/Architecture/*.php')) as $file) {
         $class = basename($file, '.php');
-        $rules[] = 'App\\Arkitect\\'.$class;
+        $rules[] = 'Tests\\Architecture\\'.$class;
     }
 
     foreach ($rules as $rule) {
