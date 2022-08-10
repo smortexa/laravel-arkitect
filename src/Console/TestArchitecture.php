@@ -10,7 +10,7 @@ class TestArchitecture extends Command
     protected $signature = 'test:arkitect {--stop-on-failure : The process will end immediately after the first violation.}
                                            {--debug : The verbose mode to see every parsed file.}';
 
-    protected $description = 'Test the app architecture';
+    protected $description = 'Run the architectural tests';
 
     public function handle(): int
     {

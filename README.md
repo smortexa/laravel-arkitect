@@ -20,12 +20,12 @@ First, you should create your architectural rules by running the following Artis
 
 `php artisan make:arkitekt ControllersNaming`
 
-By running the command, the `ControllersNaming.php` file will be created in your application's `app/Arkitect` directory like this:
+By running the command, the `ControllersNaming.php` file will be created in your application's `tests/Architecture` directory like this:
 
 ```php
 <?php
 
-namespace App\Arkitect;
+namespace Tests\Architecture;
 
 use Arkitect\Rules\DSL\ArchRule;
 use Mortexa\LaravelArkitect\Contracts\RuleContract;
@@ -79,7 +79,7 @@ Some opinionated rules are provided by the package and apply by default. These r
 ```php
 <?php
 
-namespace App\Arkitect;
+namespace Tests\Architecture;
 
 use Arkitect\Expression\ForClasses\HaveNameMatching;
 use Arkitect\Expression\ForClasses\ResideInOneOfTheseNamespaces;

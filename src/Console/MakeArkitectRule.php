@@ -3,6 +3,7 @@
 namespace Mortexa\LaravelArkitect\Console;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 
 class MakeArkitectRule extends GeneratorCommand
 {
@@ -12,18 +13,25 @@ class MakeArkitectRule extends GeneratorCommand
 
     protected $type = 'Arkitect';
 
-    protected function getStub()
+    protected function getStub(): string
     {
         return __DIR__.'/stubs/arkitect.php.stub';
     }
 
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getPath($name): string
     {
-        return $rootNamespace.'\Arkitect';
+        $name = Str::replaceFirst($this->rootNamespace(), '', $name);
+
+        return base_path('tests').str_replace('\\', '/', $name).'.php';
     }
 
-    public function handle()
+    protected function getDefaultNamespace($rootNamespace): string
     {
-        parent::handle();
+        return $rootNamespace.'\Architecture';
+    }
+
+    protected function rootNamespace(): string
+    {
+        return 'Tests';
     }
 }
