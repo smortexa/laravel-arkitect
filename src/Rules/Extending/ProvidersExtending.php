@@ -14,7 +14,7 @@ class ProvidersExtending extends BaseRule implements RuleContract
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->except('App\Providers\(Auth|Event|Route)ServiceProvider')
+            ->except('App\Providers\(Auth|Event|Route|Horizon)ServiceProvider')
             ->that(new ResideInOneOfTheseNamespaces('App\Providers'))
             ->should(new Extend('Illuminate\Support\ServiceProvider'))
             ->because('we use Laravel framework!');
