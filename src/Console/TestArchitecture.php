@@ -12,7 +12,7 @@ class TestArchitecture extends Command
 
     protected $description = 'Run the architectural tests';
 
-    public function handle()
+    public function handle(): int
     {
         $command = './vendor/bin/phparkitect check '.'--config='.__DIR__.'/../phparkitect.php';
 
