@@ -25,8 +25,12 @@ class TestArchitecture extends Command
         }
 
         Process::fromShellCommandline($command)
-            ->setTty(true)
-            ->run(fn ($type, $line) => $this->info($line));
+            ->run(function ($type, $line) {
+                return match ($type) {
+                    'err' => $this->line($line),
+                    default => $this->info($line)
+                };
+            });
 
         return static::SUCCESS;
     }
