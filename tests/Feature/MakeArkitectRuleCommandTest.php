@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-it('creates a new Arkitect rule class', function () {
-    $fooClass = app_path('Arkitect/Foo.php');
+it('creates a new Arkitect test class', function () {
+    $fooClass = base_path('tests/Architecture/Foo.php');
 
     if (File::exists($fooClass)) {
         unlink($fooClass);
@@ -19,7 +19,7 @@ it('creates a new Arkitect rule class', function () {
     $expectedContents = <<<CLASS
 <?php
 
-namespace App\Arkitect;
+namespace Tests\Architecture;
 
 use Arkitect\Rules\DSL\ArchRule;
 use Mortexa\LaravelArkitect\Contracts\RuleContract;
