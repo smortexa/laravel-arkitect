@@ -10,7 +10,7 @@ on:
   pull_request:
     paths-ignore:
       - '**.md'
-  workflow_dispatch
+  workflow_dispatch:
 jobs:
   test:
     name: Test - PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - (${{ matrix.dependency-version }})
