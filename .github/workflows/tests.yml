@@ -12,6 +12,21 @@ on:
       - '**.md'
   workflow_dispatch:
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: Pint
+        uses: aglipanci/laravel-pint-action@0.1.0
+        with:
+          preset: laravel
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Fix code style
+          skip_fetch: true
   test:
     name: Test - PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - (${{ matrix.dependency-version }})
     runs-on: ubuntu-latest
