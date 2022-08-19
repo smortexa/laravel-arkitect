@@ -13,6 +13,7 @@ on:
   workflow_dispatch:
 jobs:
   lint:
+    name: Lint PHP files using Pint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
