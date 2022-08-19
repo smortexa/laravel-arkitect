@@ -1,3 +1,4 @@
+![art/laravel-arkitect.png](art/laravel-arkitect.png)
 # Laravel Arkitect
 
 [![Latest Stable Version](http://poser.pugx.org/mortexa/laravel-arkitect/v)](https://packagist.org/packages/mortexa/laravel-arkitect) [![Total Downloads](http://poser.pugx.org/mortexa/laravel-arkitect/downloads)](https://packagist.org/packages/mortexa/laravel-arkitect) [![Latest Unstable Version](http://poser.pugx.org/mortexa/laravel-arkitect/v/unstable)](https://packagist.org/packages/mortexa/laravel-arkitect) [![License](http://poser.pugx.org/mortexa/laravel-arkitect/license)](https://packagist.org/packages/mortexa/laravel-arkitect) [![PHP Version Require](http://poser.pugx.org/mortexa/laravel-arkitect/require/php)](https://packagist.org/packages/mortexa/laravel-arkitect)
