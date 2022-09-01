@@ -24,13 +24,15 @@ class TestArchitecture extends Command
             $command .= ' --stop-on-failure';
         }
 
-        Process::fromShellCommandline($command)
-            ->run(function ($type, $line) {
-                return match ($type) {
-                    'err' => $this->line($line),
-                    default => $this->info($line)
-                };
-            });
+        $process = Process::fromShellCommandline($command);
+        $process->setTimeout(60);
+        $process->setTty(Process::isTtySupported());
+        $process->run(function ($type, $line) use (&$process) {
+            match ($type) {
+                $process::ERR => $this->line($line),
+                default => $this->info($line)
+            };
+        });
 
         return static::SUCCESS;
     }
