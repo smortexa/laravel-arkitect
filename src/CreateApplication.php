@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mortexa\LaravelArkitect;
 
 use Illuminate\Contracts\Console\Kernel;
@@ -11,7 +13,7 @@ class CreateApplication
 
     public static function app()
     {
-        if (! is_null(static::$app)) {
+        if (null !== static::$app) {
             return static::$app;
         }
 
