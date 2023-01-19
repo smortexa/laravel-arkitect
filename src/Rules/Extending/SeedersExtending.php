@@ -13,16 +13,41 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class SeedersExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Database\Seeders';
+
+    public static string $path = 'database/seeders';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('Database\Seeders'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\Database\Seeder'))
             ->because('we use Laravel framework!');
     }
 
+    public static function namespace(): string
+    {
+        if (static::$rootNamespace === static::$namespace.'\\') {
+            return static::$namespace;
+        }
+
+        return parent::namespace();
+    }
+
     public static function path(): string
     {
-        return 'database/seeders';
+        if (in_array(static::$rootPath, ['app/', 'database/factories/'])) {
+            return '';
+        }
+
+        if ('database/seeders/' === static::$rootPath) {
+            return static::$path;
+        }
+
+        if (str_contains(static::$rootPath, 'src/')) {
+            return str_replace('src/', '', static::$rootPath).static::$path;
+        }
+
+        return parent::path();
     }
 }

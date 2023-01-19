@@ -13,17 +13,16 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ControllersExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Http\Controllers';
+
+    public static string $path = 'Http/Controllers';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
             ->except('App\Http\Controllers\Controller')
-            ->that(new ResideInOneOfTheseNamespaces('App\Http\Controllers'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('App\Http\Controllers\Controller'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Http/Controllers';
     }
 }

@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class RequestsNaming extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Http\Requests';
+
+    public static string $path = 'Http/Requests';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Http\Requests'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new HaveNameMatching('*Request'))
             ->because('It\'s a Laravel naming convention');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Http/Requests';
     }
 }

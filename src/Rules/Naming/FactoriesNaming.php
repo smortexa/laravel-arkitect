@@ -13,16 +13,41 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class FactoriesNaming extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Database\Factories';
+
+    public static string $path = 'database/factories';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('Database\Factories'))
+            ->that(new ResideInOneOfTheseNamespaces(self::namespace()))
             ->should(new HaveNameMatching('*Factory'))
             ->because('It\'s a Laravel naming convention');
     }
 
+    public static function namespace(): string
+    {
+        if (static::$rootNamespace === static::$namespace.'\\') {
+            return static::$namespace;
+        }
+
+        return parent::namespace();
+    }
+
     public static function path(): string
     {
-        return 'database/factories';
+        if (in_array(static::$rootPath, ['app/', 'database/seeders/'])) {
+            return '';
+        }
+
+        if ('database/factories/' === static::$rootPath) {
+            return static::$path;
+        }
+
+        if (str_contains(static::$rootPath, 'src/')) {
+            return str_replace('src/', '', static::$rootPath).static::$path;
+        }
+
+        return parent::path();
     }
 }

@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class JobsImplementing extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Jobs';
+
+    public static string $path = 'Jobs';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Jobs'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Implement('Illuminate\Contracts\Queue\ShouldQueue'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Jobs';
     }
 }

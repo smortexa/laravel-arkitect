@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class CommandsExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Console\Commands';
+
+    public static string $path = 'Console/Commands';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Console\Commands'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\Console\Command'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Console/Commands';
     }
 }

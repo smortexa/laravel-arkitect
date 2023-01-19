@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ScopesImplementing extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Models\Scopes';
+
+    public static string $path = 'Models/Scopes';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Models\Scopes'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Implement('Illuminate\Database\Eloquent\Scope'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Models/Scopes';
     }
 }

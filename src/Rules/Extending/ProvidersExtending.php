@@ -13,17 +13,21 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ProvidersExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Providers';
+
+    public static string $path = 'Providers';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->except('App\Providers\(Auth|Event|Route|Horizon)ServiceProvider')
-            ->that(new ResideInOneOfTheseNamespaces('App\Providers'))
+            ->except(
+                'App\Providers\AuthServiceProvider',
+                'App\Providers\EventServiceProvider',
+                'App\Providers\RouteServiceProvider',
+                'App\Providers\HorizonServiceProvider',
+            )
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\Support\ServiceProvider'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Providers';
     }
 }

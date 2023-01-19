@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ResourcesExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Http\Resources';
+
+    public static string $path = 'Http/Resources';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
             ->that(new HaveNameMatching('*Resource'))
             ->should(new Extend('Illuminate\Http\Resources\Json\JsonResource'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Http/Resources';
     }
 }

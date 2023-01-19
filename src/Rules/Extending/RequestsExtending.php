@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class RequestsExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Http\Requests';
+
+    public static string $path = 'Http/Requests';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Http\Requests'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\Foundation\Http\FormRequest'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Http/Requests';
     }
 }

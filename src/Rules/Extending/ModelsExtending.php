@@ -13,17 +13,16 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ModelsExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Models';
+
+    public static string $path = 'Models';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->except('App\Models\User', 'App\Models\Scopes')
-            ->that(new ResideInOneOfTheseNamespaces('App\Models'))
+            ->except('*\Models\(User|Admin|Client)', 'App\Models\Scopes')
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\Database\Eloquent\Model'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Models';
     }
 }
