@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ViewsExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'View\Components';
+
+    public static string $path = 'View/Components';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\View\Components'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\View\Component'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/View/Components';
     }
 }

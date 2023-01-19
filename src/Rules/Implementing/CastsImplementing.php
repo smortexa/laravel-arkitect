@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class CastsImplementing extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Casts';
+
+    public static string $path = 'Casts';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Casts'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Implement('Illuminate\Contracts\Database\Eloquent\CastsAttributes'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Casts';
     }
 }

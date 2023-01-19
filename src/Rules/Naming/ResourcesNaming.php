@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ResourcesNaming extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Http\Resources';
+
+    public static string $path = 'Http/Resources';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Http\Resources'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new HaveNameMatching('*(Resource|Collection)'))
             ->because('It\'s a Laravel naming convention');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Http/Resources';
     }
 }

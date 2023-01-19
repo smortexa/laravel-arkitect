@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class RulesImplementing extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Rules';
+
+    public static string $path = 'Rules';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Rules'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Implement('Illuminate\Contracts\Validation\Rule'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Rules';
     }
 }

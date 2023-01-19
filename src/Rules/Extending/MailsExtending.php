@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class MailsExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Mails';
+
+    public static string $path = 'Mails';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Mails'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\Mail\Mailable'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Mails';
     }
 }

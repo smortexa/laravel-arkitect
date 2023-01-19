@@ -13,17 +13,16 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ExceptionsExtending extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Exceptions';
+
+    public static string $path = 'Exceptions';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
             ->except('App\Exceptions\Handler')
-            ->that(new ResideInOneOfTheseNamespaces('App\Exceptions'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Exception'))
             ->because('we use Laravel framework!');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Exceptions';
     }
 }

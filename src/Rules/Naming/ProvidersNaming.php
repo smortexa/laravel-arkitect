@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class ProvidersNaming extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Providers';
+
+    public static string $path = 'Providers';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Providers'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new HaveNameMatching('*ServiceProvider'))
             ->because('It\'s a Laravel naming convention');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Providers';
     }
 }

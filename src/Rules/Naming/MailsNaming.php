@@ -13,16 +13,15 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class MailsNaming extends BaseRule implements RuleContract
 {
+    public static string $namespace = 'Mails';
+
+    public static string $path = 'Mails';
+
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->that(new ResideInOneOfTheseNamespaces('App\Mails'))
+            ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new HaveNameMatching('*Mail'))
             ->because('It\'s a Laravel naming convention');
-    }
-
-    public static function path(): string
-    {
-        return 'app/Mails';
     }
 }
