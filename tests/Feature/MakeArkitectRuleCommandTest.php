@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
-it('creates a new Arkitect test class', function () {
+it('creates a new Arkitect test class', function (): void {
     $fooClass = base_path('tests/Architecture/Foo.php');
 
     if (File::exists($fooClass)) {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mortexa\LaravelArkitect\Console;
 
 use Illuminate\Console\GeneratorCommand;

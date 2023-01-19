@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Mortexa\LaravelArkitect\Rules\Extending\CommandsExtending;
 use Mortexa\LaravelArkitect\Rules\Extending\ControllersExtending;
 use Mortexa\LaravelArkitect\Rules\Extending\ExceptionsExtending;

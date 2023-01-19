@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mortexa\LaravelArkitect\Console;
 
 use Illuminate\Console\Command;
@@ -27,7 +29,7 @@ class TestArchitecture extends Command
         $process = Process::fromShellCommandline($command);
         $process->setTimeout(60);
         $process->setTty(Process::isTtySupported());
-        $process->run(function ($type, $line) use (&$process) {
+        $process->run(function ($type, $line) use (&$process): void {
             match ($type) {
                 $process::ERR => $this->line($line),
                 default => $this->info($line)
