@@ -13,9 +13,9 @@ use Mortexa\LaravelArkitect\Rules\BaseRule;
 
 class PoliciesNaming extends BaseRule implements RuleContract
 {
-    public static string $namespace = 'Observers';
+    public static string $namespace = 'Policies';
 
-    public static string $path = 'Observers';
+    public static string $path = 'Policies';
 
     public static function rule(): ArchRule
     {
