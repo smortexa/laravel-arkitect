@@ -36,6 +36,6 @@ class TestArchitecture extends Command
             };
         });
 
-        return static::SUCCESS;
+        return $process->getExitCode();
     }
 }

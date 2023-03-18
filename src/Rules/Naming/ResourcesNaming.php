@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mortexa\LaravelArkitect\Rules\Naming;
 
-use Arkitect\Expression\ForClasses\HaveNameMatching;
+use Arkitect\Expression\ForClasses\MatchOneOfTheseNames;
 use Arkitect\Expression\ForClasses\ResideInOneOfTheseNamespaces;
 use Arkitect\Rules\DSL\ArchRule;
 use Arkitect\Rules\Rule;
@@ -21,7 +21,7 @@ class ResourcesNaming extends BaseRule implements RuleContract
     {
         return Rule::allClasses()
             ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
-            ->should(new HaveNameMatching('*(Resource|Collection)'))
+            ->should(new MatchOneOfTheseNames(['Resource', 'Collection']))
             ->because('It\'s a Laravel naming convention');
     }
 }

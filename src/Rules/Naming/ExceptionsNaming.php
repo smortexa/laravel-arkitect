@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mortexa\LaravelArkitect\Rules\Naming;
 
-use Arkitect\Expression\ForClasses\HaveNameMatching;
+use Arkitect\Expression\ForClasses\MatchOneOfTheseNames;
 use Arkitect\Expression\ForClasses\ResideInOneOfTheseNamespaces;
 use Arkitect\Rules\DSL\ArchRule;
 use Arkitect\Rules\Rule;
@@ -21,7 +21,7 @@ class ExceptionsNaming extends BaseRule implements RuleContract
     {
         return Rule::allClasses()
             ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
-            ->should(new HaveNameMatching('*Exception|Handler'))
+            ->should(new MatchOneOfTheseNames(['Exception', 'Handler']))
             ->because('It\'s a Laravel naming convention');
     }
 }

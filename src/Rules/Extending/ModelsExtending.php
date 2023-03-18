@@ -20,7 +20,12 @@ class ModelsExtending extends BaseRule implements RuleContract
     public static function rule(): ArchRule
     {
         return Rule::allClasses()
-            ->except('*\Models\(User|Admin|Client)', 'App\Models\Scopes')
+            ->except(
+                'App\Models\User',
+                'App\Models\Admin',
+                'App\Models\Client',
+                'App\Models\Scopes'
+            )
             ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
             ->should(new Extend('Illuminate\Database\Eloquent\Model'))
             ->because('we use Laravel framework!');
