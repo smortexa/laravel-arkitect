@@ -78,4 +78,5 @@ return [
             JobsImplementing::class,
         ],
     ],
+    'ignored_namespaces' => [],
 ];
