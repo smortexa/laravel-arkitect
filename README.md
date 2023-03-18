@@ -173,9 +173,11 @@ return [
             JobsImplementing::class,
         ],
     ],
+    'ignored_namespaces' => [],
 ];
 ```
-
+### Ignore namespaces
+If you want to ignore any namespaces from being under architectural test, you should add the related path to `ignored_namespaces` key in configuration file.
 ## Contributing
 
 Thank you for considering contributing! If you find an issue, or have a better way to do something, feel free to open an

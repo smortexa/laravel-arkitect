@@ -26,6 +26,12 @@ return static function (Config $config): void {
     );
 
     foreach ($psr4_namespaces as $namespace => $path) {
+        if (in_array($path, config('arkitect.ignored_namespaces') ?? [])) {
+            unset($psr4_namespaces[$namespace]);
+        }
+    }
+
+    foreach ($psr4_namespaces as $namespace => $path) {
         BaseRule::$rootNamespace = $namespace;
         BaseRule::$rootPath = $path;
         $addRules($rules);
