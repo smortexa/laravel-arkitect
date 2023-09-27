@@ -29,7 +29,7 @@ composer require mortexa/laravel-arkitect --dev
 
 First, you should create your architectural rules by running the following Artisan command:
 
-`php artisan make:arkitekt ControllersNaming`
+`php artisan make:arkitect ControllersNaming`
 
 By running the command, the `ControllersNaming.php` file will be created in your application's `tests/Architecture` directory like this:
 
