@@ -21,7 +21,7 @@ class ExceptionsNaming extends BaseRule implements RuleContract
     {
         return Rule::allClasses()
             ->that(new ResideInOneOfTheseNamespaces(static::namespace()))
-            ->should(new MatchOneOfTheseNames(['Exception', 'Handler']))
+            ->should(new MatchOneOfTheseNames(['*Exception', '*Handler']))
             ->because('It\'s a Laravel naming convention');
     }
 }
