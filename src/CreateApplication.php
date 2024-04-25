@@ -9,7 +9,7 @@ use Illuminate\Foundation\Application;
 
 class CreateApplication
 {
-    public static Application|null $app = null;
+    public static ?Application $app = null;
 
     public static function app()
     {

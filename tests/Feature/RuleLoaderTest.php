@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Mortexa\LaravelArkitect\RuleLoader;
+
 use function PHPUnit\Framework\assertEqualsCanonicalizing;
 
 it('loads user\'s rules', function (): void {
