@@ -14,6 +14,8 @@ class BaseRule
 
     public static string $rootPath = 'app/';
 
+    public static string $reason = 'we use Laravel framework!';
+
     public static function classSet(): ClassSet
     {
         return ClassSet::fromDir(static::directory());
